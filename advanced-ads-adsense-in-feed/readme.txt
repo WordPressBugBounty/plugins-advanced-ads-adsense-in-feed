@@ -2,8 +2,8 @@
 Contributors: advancedads, webzunft
 Tags: adsense, in-feed, in-feed ads, ads, google adsense, loop, post list, post lists, archive pages, category pages, tag pages
 Requires at least: 5.0
-Tested up to: 6.5
-Stable tag: 1.1.3
+Tested up to: 6.7
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Advanced Ads Pro and other add-on features include
 2. The placement can be used with many other features, like cache-busting, lazy load, and alternative ad blocker content in Advanced Ads Pro
 
 == Changelog ==
+
+= 1.1.4 =
+* Improvement: add compatibility code for Advanced Ads 2.0
 
 = 1.1.3 =
 

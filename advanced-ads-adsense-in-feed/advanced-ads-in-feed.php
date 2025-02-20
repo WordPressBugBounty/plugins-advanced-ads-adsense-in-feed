@@ -3,7 +3,7 @@
  * Plugin Name:       Advanced Ads – Google AdSense In-feed Placement
  * Plugin URI:        https://wpadvancedads.com
  * Description:       Display AdSense In-feed ads between posts
- * Version:           1.1.3
+ * Version:           1.1.4
  * Author:            Advanced Ads
  * Author URI:        https://wpadvancedads.com
  * Text Domain:       advanced-ads-adsense-in-feed
@@ -15,6 +15,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
+
+define( 'AAIF_FILE', __FILE__ );
+define( 'AAIF_VERSION', '1.1.4' );
 
 /**
  * Class Advanced_Ads_In_Feed
@@ -43,7 +46,6 @@ class Advanced_Ads_In_Feed {
 		add_action( 'advanced-ads-placement-options-before', array( $this, 'placement_options_check' ), 10, 2 );
 		add_action( 'advanced-ads-placement-options-after', array( $this, 'placement_options' ), 11, 2 );
 	}
-
 
 	/**
 	 * Check if Advanced Ads basic plugin is activated
@@ -87,16 +89,13 @@ class Advanced_Ads_In_Feed {
 	 * @param WP_Query $wp_query query object.
 	 *
 	 * @since 1.0
-	 *
 	 */
 	public function inject_in_feed( $post, $wp_query = null ) {
-		if ( ! $wp_query instanceof WP_Query
-		     || is_feed()
-		     || is_admin()
-		     || $wp_query->is_singular()
-		     || ! $wp_query->in_the_loop
-		     || ! isset( $wp_query->current_post )
-		     || ! $wp_query->is_main_query() ) {
+		if (
+			! $wp_query instanceof WP_Query || is_feed() ||
+			is_admin() || $wp_query->is_singular() || ! $wp_query->in_the_loop ||
+			! isset( $wp_query->current_post ) || ! $wp_query->is_main_query()
+		) {
 			return;
 		}
 
@@ -146,10 +145,11 @@ class Advanced_Ads_In_Feed {
 
 		// load the ad.
 		$ad = new Advanced_Ads_Ad( $_item[1] );
-		if ( isset( $ad->type )
-		     && 'adsense' === $ad->type
-		     && isset( $ad->content )
-		     && strpos( $ad->content, 'in-feed' ) ) {
+		if (
+			isset( $ad->type ) && 'adsense' === $ad->type
+			&& isset( $ad->content )
+			&& strpos( $ad->content, 'in-feed' )
+		) {
 			return true;
 		}
 
@@ -228,7 +228,87 @@ class Advanced_Ads_In_Feed {
 			}
 		}
 	}
-
 }
 
-new Advanced_Ads_In_Feed();
+/**
+ * Halt code remove with new release.
+ *
+ * @return void
+ */
+function wp_advads_in_feed_halt_code() {
+	global $advads_halt_notices;
+
+	// Early bail!!
+	if ( ! defined( 'ADVADS_VERSION' ) ) {
+		return;
+	}
+
+	if ( version_compare( ADVADS_VERSION, '2.0.0', '>=' ) ) {
+		if ( ! isset( $advads_halt_notices ) ) {
+			$advads_halt_notices = [];
+		}
+		$advads_halt_notices[] = __( 'Advanced Ads – Google AdSense In-feed Placement', 'advanced-ads-adsense-in-feed' );
+
+		add_action(
+			'all_admin_notices',
+			static function () {
+				global $advads_halt_notices;
+
+				// Early bail!!
+				if ( 'plugins' === get_current_screen()->base || empty( $advads_halt_notices ) ) {
+					return;
+				}
+				?>
+				<div class="notice notice-error">
+					<h2><?php esc_html_e( 'Important Notice', 'advanced-ads-adsense-in-feed' ); ?></h2>
+					<p>
+						<?php
+						echo wp_kses_post(
+							sprintf(
+								/* translators: %s: Plugin name */
+								__( 'Your versions of the Advanced Ads addons listed below are incompatible with <strong>Advanced Ads 2.0</strong> and have been deactivated. Please update them to their latest version. If you cannot update, e.g., due to an expired license, you can <a href="%1$s">roll back to a compatible version of the Advanced Ads plugin</a> at any time or <a href="%2$s">renew your license</a>.', 'advanced-ads-adsense-in-feed' ),
+								esc_url( admin_url( 'admin.php?page=advanced-ads-tools&sub_page=version' ) ),
+								'https://wpadvancedads.com/account/#h-licenses'
+							)
+						)
+						?>
+					</p>
+					<h3><?php esc_html_e( 'The following addons are affected:', 'advanced-ads-adsense-in-feed' ); ?></h3>
+					<ul>
+						<?php foreach ( $advads_halt_notices as $notice ) : ?>
+							<li><strong><?php echo esc_html( $notice ); ?></strong></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<?php
+				$advads_halt_notices = [];
+			}
+		);
+
+		add_action(
+			'after_plugin_row_' . plugin_basename( __FILE__ ),
+			static function () {
+				echo '<tr class="active"><td colspan="5" class="plugin-update colspanchange">';
+				wp_admin_notice(
+					sprintf(
+						/* translators: %s: Plugin name */
+						__( 'Your version of <strong>Advanced Ads – Google AdSense In-feed Placement</strong> is incompatible with <strong>Advanced Ads 2.0</strong> and has been deactivated. Please update the plugin to the latest version. If you cannot update the plugin, e.g., due to an expired license, you can <a href="%1$s">roll back to a compatible version of the Advanced Ads plugin</a> at any time or <a href="%2$s">renew your license</a>.', 'advanced-ads-pro' ),
+						esc_url( admin_url( 'admin.php?page=advanced-ads-tools&sub_page=version' ) ),
+						'https://wpadvancedads.com/account/#h-licenses'
+					),
+					[
+						'type'               => 'error',
+						'additional_classes' => array( 'notice-alt', 'inline', 'update-message' ),
+					]
+				);
+				echo '</td></tr>';
+			}
+		);
+		return;
+	}
+
+	// Autoload and activate.
+	new Advanced_Ads_In_Feed();
+}
+
+add_action( 'plugins_loaded', 'wp_advads_in_feed_halt_code', 5 );
