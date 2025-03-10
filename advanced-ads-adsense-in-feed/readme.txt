@@ -1,9 +1,10 @@
 === In-feed ads for Google AdSense ===
 Contributors: advancedads, webzunft
 Tags: adsense, in-feed, in-feed ads, ads, google adsense, loop, post list, post lists, archive pages, category pages, tag pages
-Requires at least: 5.0
+Requires at least: 5.7
 Tested up to: 6.7
-Stable tag: 1.1.4
+Requires PHP: 7.4
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,9 +16,9 @@ This plugin is an add-on for the also free [Advanced Ads](https://wordpress.org/
 
 Google AdSense InFeed ads are a dedicated Google AdSense ad type to monetize such post lists pages with a highly engaging layout and specialized options.
 
-Advanced Ads was developed to place, manage and test ads on pages to increase revenue and usability. 
+Advanced Ads was developed to place, manage and test ads on pages to increase revenue and usability.
 
-The plugin comes with plenty of features, e.g., 
+The plugin comes with plenty of features, e.g.,
 
 * Support for all Google AdSense types like link units, responsive, In-feed, In-article and matched content
 * Google AdSense term violation checks
@@ -41,8 +42,9 @@ Advanced Ads Pro and other add-on features include
 
 == Changelog ==
 
-= 1.1.4 =
-* Improvement: add compatibility code for Advanced Ads 2.0
+= 2.0.0 =
+- Feature: achieve full compatibility with Advanced Ads 2.0
+- Improvement: enhance performance and efficiency with new codebase
 
 = 1.1.3 =
 
