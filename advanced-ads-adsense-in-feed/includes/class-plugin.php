@@ -112,8 +112,7 @@ class Plugin extends Loader {
 	 * @return void
 	 */
 	public function load_textdomain(): void {
-		$locale = get_user_locale();
-		$locale = apply_filters( 'plugin_locale', $locale, 'advanced-ads-adsense-in-feed' );
+		$locale = apply_filters( 'plugin_locale', determine_locale(), 'advanced-ads-adsense-in-feed' );
 
 		unload_textdomain( 'advanced-ads-adsense-in-feed' );
 		if ( false === load_textdomain( 'advanced-ads-adsense-in-feed', WP_LANG_DIR . '/plugins/advanced-ads-adsense-in-feed-' . $locale . '.mo' ) ) {

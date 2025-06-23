@@ -1,0 +1,46 @@
+{
+  "wp": {
+    "name": "Advanced Ads – Google AdSense In-feed Placement",
+    "description": "Display AdSense In-feed ads between posts",
+    "version": "2.1.0",
+    "requireWP": "5.7",
+    "requirePHP": "7.4",
+    "textDomain": "advanced-ads-adsense-in-feed",
+    "glotpress": "advanced-ads-google-ad-sense-in-feed-placement"
+  },
+  "paths": {
+    "php": "includes",
+    "views": "views",
+    "updates": "updates",
+    "javascript": "src",
+    "css": "src/css"
+  },
+  "misc": {
+    "package": "AdvancedAds\\InFeed",
+    "prefix": "wp_advads_infeed",
+    "constprefix": "AA_INFEED"
+  },
+  "year": 2025,
+  "company": {
+    "name": "Advanced Ads",
+    "url": "https://wpadvancedads.com/"
+  },
+  "author": {
+    "name": "Advanced Ads",
+    "email": "info@wpadvancedads.com",
+    "url": "https://wpadvancedads.com/"
+  },
+  "package": {
+    "vendor": "advanced-ads",
+    "name": "advanced-ads-google-ad-sense-in-feed-placement"
+  },
+  "glotpress": {
+    "project": "advanced-ads-google-ad-sense-in-feed-placement",
+    "destination": "./languages/"
+  },
+  "wpPot": {
+    "output": "/languages/",
+    "file": "advanced-ads-adsense-in-feed.pot",
+    "domain": "advanced-ads-adsense-in-feed"
+  }
+}
