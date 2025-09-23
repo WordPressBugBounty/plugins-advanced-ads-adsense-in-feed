@@ -4,7 +4,7 @@ Tags: adsense, in-feed, in-feed ads, ads, google adsense, loop, post list, post 
 Requires at least: 5.7
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,11 @@ Advanced Ads Pro and other add-on features include
 2. The placement can be used with many other features, like cache-busting, lazy load, and alternative ad blocker content in Advanced Ads Pro
 
 == Changelog ==
+
+= 2.1.1 (September 23, 2025) =
+
+- Improvement: add undefined translations
+- Fix: prevent fatal error when handling invalid ads
 
 = 2.1.0 (June 23, 2025) =
 

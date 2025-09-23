@@ -103,6 +103,10 @@ class Plugin extends Loader {
 
 		$ad = wp_advads_get_ad( $_item[1] );
 
+		if ( ! $ad || ! is_object( $ad ) ) {
+			return false;
+		}
+
 		return $ad->is_type( 'adsense' ) && Str::contains( 'in-feed', $ad->get_content() );
 	}
 
