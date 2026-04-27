@@ -10,7 +10,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Advanced Ads – Google AdSense In-feed Placement
- * Version:           2.1.1
+ * Version:           2.1.2
  * Description:       Display AdSense In-feed ads between posts
  * Plugin URI:        https://wpadvancedads.com/
  * Author:            Advanced Ads
@@ -37,7 +37,7 @@ if ( defined( 'AAINF_FILE' ) ) {
 }
 
 define( 'AAINF_FILE', __FILE__ );
-define( 'AAINF_VERSION', '2.1.1' );
+define( 'AAINF_VERSION', '2.1.2' );
 
 // Load the autoloader.
 require_once __DIR__ . '/includes/class-autoloader.php';

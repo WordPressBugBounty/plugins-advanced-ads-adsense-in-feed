@@ -86,6 +86,7 @@ class In_Feed_Type extends Base implements Placement_Type {
 	public function get_options(): array {
 		return $this->apply_filter_on_options(
 			[
+				'allowed_ad_types' => [ 'adsense' ],
 				'show_position'  => true,
 				'show_lazy_load' => true,
 			]

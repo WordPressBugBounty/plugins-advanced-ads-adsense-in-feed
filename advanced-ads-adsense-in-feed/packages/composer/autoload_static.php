@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc85bc57f9bb85ef1ea58ef80e5b30944
+class ComposerStaticInitda28c014fde7f21617dc1fdd1dfa95c9
 {
     public static $classMap = array (
         'AdvancedAds\\InFeed\\Admin\\Placement_Settings' => __DIR__ . '/../..' . '/includes/admin/class-placement-settings.php',
@@ -21,7 +21,7 @@ class ComposerStaticInitc85bc57f9bb85ef1ea58ef80e5b30944
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitc85bc57f9bb85ef1ea58ef80e5b30944::$classMap;
+            $loader->classMap = ComposerStaticInitda28c014fde7f21617dc1fdd1dfa95c9::$classMap;
 
         }, null, ClassLoader::class);
     }

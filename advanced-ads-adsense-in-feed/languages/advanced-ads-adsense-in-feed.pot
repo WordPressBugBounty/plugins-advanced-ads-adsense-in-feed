@@ -1,43 +1,43 @@
-# Copyright (C) 2025 Advanced Ads
+# Copyright (C) 2026 Advanced Ads
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Advanced Ads – Google AdSense In-feed Placement 2.1.0\n"
+"Project-Id-Version: Advanced Ads – Google AdSense In-feed Placement 2.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/advanced-ads-adsense-in-feed\n"
 "Last-Translator: Shakeeb Ahmed <me@shakeebahmed.com>\n"
 "Language-Team: Advanced Ads <support@wpadvancedads.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-23T12:07:19+00:00\n"
+"POT-Creation-Date: 2026-04-27T15:04:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: advanced-ads-adsense-in-feed\n"
 
 #. Plugin Name of the plugin
-#: advanced-ads-in-feed.php
+#: advanced-ads-in-feed.php:12
 #: includes/class-bootstrap.php:71
 #: includes/class-bootstrap.php:78
 msgid "Advanced Ads – Google AdSense In-feed Placement"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: advanced-ads-in-feed.php
+#: advanced-ads-in-feed.php:15
 msgid "https://wpadvancedads.com/"
 msgstr ""
 
 #. Description of the plugin
-#: advanced-ads-in-feed.php
+#: advanced-ads-in-feed.php:14
 msgid "Display AdSense In-feed ads between posts"
 msgstr ""
 
 #. Author of the plugin
-#: advanced-ads-in-feed.php
+#: advanced-ads-in-feed.php:16
 msgid "Advanced Ads"
 msgstr ""
 
 #. Author URI of the plugin
-#: advanced-ads-in-feed.php
+#: advanced-ads-in-feed.php:17
 msgid "https://wpadvancedads.com"
 msgstr ""
 
